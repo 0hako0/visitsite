@@ -308,8 +308,12 @@ h1 {
 .trip-meta dt { color: var(--muted); font-size: 0.78rem; font-weight: 800; }
 .trip-meta dd { margin: 4px 0 0; font-weight: 800; }
 
-.nearby-list { display: grid; gap: 8px; padding: 0; margin: 0 0 22px; list-style: none; }
-.nearby-list li { padding: 10px 12px; background: #f6f8f4; border-radius: 14px; }
+.nearby-list,
+.url-list { display: grid; gap: 8px; padding: 0; margin: 0 0 22px; list-style: none; }
+.nearby-list li,
+.url-list li { padding: 10px 12px; background: #f6f8f4; border-radius: 14px; }
+.url-list a { display: inline-flex; gap: 8px; align-items: center; color: var(--deep-teal); font-weight: 800; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.url-list a::before { content: "🔗"; text-decoration: none; }
 
 .map-card { overflow: hidden; border-radius: 20px; }
 .map-card iframe { display: block; width: 100%; min-height: 250px; border: 0; }

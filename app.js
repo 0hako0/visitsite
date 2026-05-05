@@ -9,6 +9,11 @@ const destinations = [
     priority: "★★★★★",
     budget: "交通 + 1泊",
     nearby: ["河童橋で写真を撮る", "明神池まで歩く", "平湯温泉に立ち寄る"],
+    urls: [
+      { label: "上高地公式ウェブサイト", href: "https://www.kamikochi.or.jp/" },
+      { label: "Google Mapsで開く", href: "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%AB%98%E5%9C%B0" },
+      { label: "宿・交通メモ", href: "https://www.kamikochi.or.jp/access/" },
+    ],
     map: "https://www.google.com/maps?q=%E4%B8%8A%E9%AB%98%E5%9C%B0&output=embed",
     accent: "linear-gradient(135deg, #7fc8a9, #d5f2df)",
   },
@@ -22,6 +27,11 @@ const destinations = [
     priority: "★★★★☆",
     budget: "新幹線 + 1泊",
     nearby: ["兼六園の朝散歩", "ひがし茶屋街で和菓子", "21世紀美術館を予約"],
+    urls: [
+      { label: "金沢旅物語", href: "https://www.kanazawa-kankoukyoukai.or.jp/" },
+      { label: "Google Mapsで開く", href: "https://www.google.com/maps/search/?api=1&query=%E9%87%91%E6%B2%A2%E9%A7%85" },
+      { label: "兼六園", href: "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/" },
+    ],
     map: "https://www.google.com/maps?q=%E9%87%91%E6%B2%A2%E9%A7%85&output=embed",
     accent: "linear-gradient(135deg, #f4b860, #f8e6b0)",
   },
@@ -35,6 +45,11 @@ const destinations = [
     priority: "★★★★★",
     budget: "航空券 + 2泊",
     nearby: ["与那覇前浜ビーチ", "伊良部大橋ドライブ", "島カフェで夕日を見る"],
+    urls: [
+      { label: "宮古島観光協会", href: "https://miyako-guide.net/" },
+      { label: "Google Mapsで開く", href: "https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%8F%A4%E5%B3%B6" },
+      { label: "ビーチ候補メモ", href: "https://miyako-guide.net/spots/" },
+    ],
     map: "https://www.google.com/maps?q=%E5%AE%AE%E5%8F%A4%E5%B3%B6&output=embed",
     accent: "linear-gradient(135deg, #4cc9f0, #c9f3ff)",
   },
@@ -48,6 +63,11 @@ const destinations = [
     priority: "★★★★☆",
     budget: "交通 + 日帰り",
     nearby: ["千光寺公園", "商店街で食べ歩き", "しまなみ海道を少し走る"],
+    urls: [
+      { label: "尾道観光協会", href: "https://www.ononavi.jp/" },
+      { label: "Google Mapsで開く", href: "https://www.google.com/maps/search/?api=1&query=%E5%B0%BE%E9%81%93" },
+      { label: "しまなみ海道", href: "https://www.go-shimanami.jp/" },
+    ],
     map: "https://www.google.com/maps?q=%E5%B0%BE%E9%81%93&output=embed",
     accent: "linear-gradient(135deg, #ff9770, #ffe0cc)",
   },
@@ -61,6 +81,11 @@ const destinations = [
     priority: "★★★★★",
     budget: "交通 + 1泊",
     nearby: ["地中美術館を事前予約", "家プロジェクト", "港で夕景を見る"],
+    urls: [
+      { label: "ベネッセアートサイト直島", href: "https://benesse-artsite.jp/" },
+      { label: "Google Mapsで開く", href: "https://www.google.com/maps/search/?api=1&query=%E7%9B%B4%E5%B3%B6" },
+      { label: "直島観光旅サイト", href: "https://naoshima.net/" },
+    ],
     map: "https://www.google.com/maps?q=%E7%9B%B4%E5%B3%B6&output=embed",
     accent: "linear-gradient(135deg, #9b5de5, #eadcff)",
   },
@@ -78,6 +103,7 @@ const detailSeason = document.querySelector("#detailSeason");
 const detailPriority = document.querySelector("#detailPriority");
 const detailBudget = document.querySelector("#detailBudget");
 const nearbyList = document.querySelector("#nearbyList");
+const urlList = document.querySelector("#urlList");
 const mapFrame = document.querySelector("#mapFrame");
 const todoForm = document.querySelector("#todoForm");
 const todoInput = document.querySelector("#todoInput");
@@ -128,6 +154,9 @@ function updateDetails(id) {
   detailPriority.textContent = destination.priority;
   detailBudget.textContent = destination.budget;
   nearbyList.innerHTML = destination.nearby.map((spot) => `<li>${spot}</li>`).join("");
+  urlList.innerHTML = destination.urls
+    .map((link) => `<li><a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a></li>`)
+    .join("");
   mapFrame.src = destination.map;
 }
 
